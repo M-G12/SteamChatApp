@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:id="@+id/main_nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.gharibe.smartapps.streamchatapp.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_channelFragment3"
+            app:destination="@id/channelFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/channelFragment3"
+        android:name="com.gharibe.smartapps.streamchatapp.ui.channel.ChannelFragment"
+        android:label="ChannelFragment" >
+        <action
+            android:id="@+id/action_channelFragment3_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_channelFragment3_to_createChannelDialog"
+            app:destination="@id/createChannelDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.gharibe.smartapps.streamchatapp.ui.chat.ChatFragment"
+        android:label="ChatFragment" >
+        <argument
+            android:name="channelId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_chatFragment_self"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/createChannelDialog"
+        android:name="com.gharibe.smartapps.streamchatapp.ui.channel.CreateChannelDialog"
+        android:label="CreateChannelDialog" />
+</navigation>
